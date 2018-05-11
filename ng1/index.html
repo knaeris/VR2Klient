@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="et" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>Ng1</title>
+
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style type="text/css">
+        .ng-cloak { display: none }
+        .done { text-decoration: line-through }
+    </style>
+</head>
+<body ng-app="App">
+<ul id="menu">
+    <li><a href="#/main" id="menu-mainpage">Pealeht</a></li>
+    <li><a href="#/Categories" id="menu-category">Kategooriad</a></li>
+    <li><a href="#/all-blogs" id="menu-all-blogs">Kõik Blogid</a></li>
+    <li><a href="#/latest-blogposts" id="menu-latest-blogposts">Hiljutised Postitused</a></li>
+    <li><a href="#/login" id="menu-login">Login</a></li>
+
+</ul>
+
+<pre></pre>
+<div ng-view></div>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.6/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/controllers/new.ctrl.js"></script>
+<script src="js/controllers/categories.ctrl.js"></script>
+<script src="js/controllers/blogs.ctrl.js"></script>
+<script src="js/services/modal.srv.js"></script>
+</body>
+</html>

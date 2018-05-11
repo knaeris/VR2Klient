@@ -1,0 +1,47 @@
+<input ng-model="srchStr" placeholder="Otsi">
+<pre></pre>
+<table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Tel
+        </th>
+        <th>
+            Kustuta
+        </th>
+        <th>
+            Vali
+        </th>
+    </tr>
+    </thead>
+    <body>
+    <tr ng-repeat="item in vm.items | filter:find">
+
+
+        <td>
+
+                    <span ng-class="{done: item.done}">
+            {{ item.blogCategoryId }}
+                        </span>
+
+
+        </td>
+        <td>
+            <span ng-class="{done: item.done}">
+            {{ item.blogCategoryName }}
+            </span>
+        </td>
+
+        <td>
+            <a href ng-click="vm.removeItem(item.blogCategoryId)">kustuta</a>
+        </td>
+        <td>
+
+            <input type="checkbox" ng-model="item.done"><br/>
+        </td>
+    </tr>
+    </body>
+</table>

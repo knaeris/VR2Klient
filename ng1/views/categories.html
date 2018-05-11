@@ -1,0 +1,23 @@
+<pre></pre>
+<table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>
+            Kategooria nimi
+        </th>
+        <th>
+            Blog
+        </th>
+    </tr>
+    </thead>
+    <body>
+    <tr ng-repeat="item in vm.items | filter:find">
+        <td>
+            {{ item.blogCategoryId }}
+        </td>
+        <td>
+            {{ item.blogCategoryName }}
+        </td>
+    </tr>
+    </body>
+</table>
