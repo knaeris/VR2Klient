@@ -29,6 +29,10 @@
             templateUrl : 'views/blogview.html',
             controller : 'BlogViewController',
             controllerAs : 'vm'
+        }).when('/login', {
+            templateUrl : 'views/login.html',
+            controller : 'LoginController',
+            controllerAs: 'vm'
         }).when('/blogpost/:id', {
             templateUrl : 'views/blogpost.html',
             controller : 'BlogpostsController',
