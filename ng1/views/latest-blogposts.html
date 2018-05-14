@@ -5,6 +5,14 @@
     <title>Hiljutised postitused</title>
 </head>
 <body>
-
+<div>
+    <ul>
+        <li ng-repeat="blogpost in vm.blogposts">
+            <a href="#/blogpost/{{blogpost.blogPostId}}">
+            {{blogpost.blogPostTitle}}
+            </a>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

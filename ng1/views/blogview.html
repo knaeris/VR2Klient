@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OneBlog</title>
+    <title>{{blog.blogTitle}}</title>
 </head>
 <body>
-<p><div ng-repeat="item in vm.items" align="right">
-    Autor: {{ item.applicationUserId}}
-</p>
-<button type="telli">Telli</button>
+<div align="right">
+    Autor: {{ blog.applicationUserId}}
+<br><pre></pre>
+<button type="telli">Telli</button><br>
+<pre></pre>
+<button type="like">Like</button>
 </div>
-<table border="0" cellpadding="10">
-<tr ng-repeat="item in vm.items">
-    <td>
-        {{ item.blogPostTitle }}
-    </td>
-    <td>
-        {{ item.blogPostContent }}
-    </td>
-    <td>
-        <button type="like">Like</button>
-    </td>
-</tr>
-</table>
+<div>
+    <h1>
+        {{vm.blog.blogTitle}}
+    </h1>
+
+    <h3>
+        {{vm.blog.blogDescription}}
+    </h3>
+</div>
+
+
 
 </body>
 </html>

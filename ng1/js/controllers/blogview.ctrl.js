@@ -4,26 +4,22 @@
     angular.module('app').controller('BlogViewController', Ctrl);
 
     function Ctrl($http, $routeParams, $scope, $location) {
+        var url = 'https://localhost:44305/api/blogs/';
         var vm = this;
-        vm.items = {};
-        vm.users = {};
+        var blogId = $routeParams.id;
+        vm.blog = {};
+
         init();
-        getUsername();
 
         function init() {
-            $http.get('https://localhost:44305/api/blogposts').then(function (result) {
-                vm.items = result.data;
-                //console.log(vm.items);
+            $http.get(url + blogId)
+                .then(function (result) {
+                vm.blog = result.data;
+                console.log(vm.blog);
             });
         }
 
-        function getUsername() {
-            $http.get('https://localhost:44305/api/aspnetusers').then(function (result) {
-                vm.users = result.data;
-                console.log(vm.users);
-            })
 
-        }
 
 
 

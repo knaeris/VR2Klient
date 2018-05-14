@@ -6,20 +6,21 @@
     function Ctrl($http, modalService, $scope){
 
         var vm = this;
-        this.items = [];
+        var url = 'https://localhost:44305/api/blogcategories';
+        this.categories = [];
         this.removeItem = removeItem;
 
         init();
 
         function init() {
-            $http.get('https://localhost:44305/api/blogcategories').then(function (result) {
-                vm.items = result.data;
-                console.log(vm.items);
+            $http.get(url).then(function (result) {
+                vm.categories = result.data;
+                console.log(vm.categories);
             });
         }
         function removeItem(id){
             modalService.confirm().then(function() {
-                return $http.delete('https://localhost:44305/api/blogcategories/' + id);}).then(init);
+                return $http.delete(url + id);}).then(init);
 
         }
         $scope.find = function(item) {

@@ -6,17 +6,17 @@
             Kategooria nimi
         </th>
         <th>
-            Blog
+            Blogide arv
         </th>
     </tr>
     </thead>
     <body>
-    <tr ng-repeat="item in vm.items | filter:find">
+    <tr ng-repeat="category in vm.categories | filter:find">
         <td>
-            {{ item.blogCategoryId }}
+            {{ category.blogCategoryName }}
         </td>
         <td>
-            {{ item.blogCategoryName }}
+            {{ category.blogs }}
         </td>
     </tr>
     </body>

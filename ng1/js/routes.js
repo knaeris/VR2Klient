@@ -13,13 +13,9 @@
             templateUrl : 'views/categories.html',
             controller : 'CategoriesController',
             controllerAs : 'vm'
-        }).when('/details/:id', {
-            templateUrl : 'views/details.html',
-            controller : 'DetailController',
-            controllerAs : 'vm'
         }).when('/all-blogs', {
             templateUrl : 'views/all-blogs.html',
-            controller : 'BlogsController',
+            controller : 'AllBlogsController',
             controllerAs : 'vm'
         }).when('/main', {
             templateUrl : 'views/main.html',
@@ -27,11 +23,15 @@
             controllerAs : 'vm'
         }).when('/latest-blogposts', {
             templateUrl : 'views/latest-blogposts.html',
-            controller : 'LatestBlogPostsController',
+            controller : 'latestBlogpostsController',
             controllerAs : 'vm'
-        }).when('/blogview', {
+        }).when('/blogview/:id', {
             templateUrl : 'views/blogview.html',
             controller : 'BlogViewController',
+            controllerAs : 'vm'
+        }).when('/blogpost/:id', {
+            templateUrl : 'views/blogpost.html',
+            controller : 'BlogpostsController',
             controllerAs : 'vm'
         }).otherwise('/main');
 

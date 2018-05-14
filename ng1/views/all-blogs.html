@@ -28,23 +28,24 @@
     </tr>
     </thead>
     <body>
-<tr ng-repeat="item in vm.items">
+<tr ng-repeat="blog in vm.blogs">
     <td>
-        <button onclick="location.href= '#/blogview';" id="menu-blogview">
-        {{item.blogTitle}}
+        <a href= '#/blogview/{{blog.blogId}}' class="view-blog">
+        {{blog.blogTitle}}
+        </a>
     </td>
     <td>
 
-        {{item.blogId}}
+        {{blog.blogId}}
     </td>
     <td>
-        {{item.blogId}}
+        {{blog.applicationUserId}}
     </td>
     <td>
-        {{item.blogId}}
+        {{blog.blogId}}
     </td>
     <td>
-        {{item.blogId}}
+        {{blog.blogId}}
     </td>
 </tr>
     </body>
