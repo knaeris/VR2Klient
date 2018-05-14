@@ -31,12 +31,16 @@
             controllerAs : 'vm'
         }).when('/login', {
             templateUrl : 'views/login.html',
-            controller : 'LoginController',
+            controller : 'AccountController',
             controllerAs: 'vm'
         }).when('/blogpost/:id', {
             templateUrl : 'views/blogpost.html',
             controller : 'BlogpostsController',
             controllerAs : 'vm'
+        }).when('/register', {
+            templateUrl : 'views/register.html',
+            controller : 'AccountController',
+            controllerAs: 'vm'
         }).otherwise('/main');
 
     }
