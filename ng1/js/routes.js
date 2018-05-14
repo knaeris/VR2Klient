@@ -29,9 +29,9 @@
             templateUrl : 'views/latest-blogposts.html',
             controller : 'LatestBlogPostsController',
             controllerAs : 'vm'
-        }).when('/login', {
-            templateUrl : 'views/login.html',
-            controller : 'LoginController',
+        }).when('/blogview', {
+            templateUrl : 'views/blogview.html',
+            controller : 'BlogViewController',
             controllerAs : 'vm'
         }).otherwise('/main');
 

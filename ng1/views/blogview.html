@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OneBlog</title>
+</head>
+<body>
+<p><div ng-repeat="item in vm.items" align="right">
+    Autor: {{ item.applicationUserId}}
+</p>
+<button type="telli">Telli</button>
+</div>
+<table border="0" cellpadding="10">
+<tr ng-repeat="item in vm.items">
+    <td>
+        {{ item.blogPostTitle }}
+    </td>
+    <td>
+        {{ item.blogPostContent }}
+    </td>
+    <td>
+        <button type="like">Like</button>
+    </td>
+</tr>
+</table>
+
+</body>
+</html>

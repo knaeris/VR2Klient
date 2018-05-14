@@ -8,12 +8,19 @@
         vm.items = {};
         var itemId = $routeParams.id;
         this.editItem = editItem;
+        init();
 
         $http.get('https://localhost:44305/api/blogs').then(function (result) {
             vm.items = result.data;
             console.log(vm.items);
         });
 
+        function init() {
+            $http.get('https://localhost:44305/api/blogposts').then(function (result) {
+                vm.items = result.data;
+                console.log(vm.items);
+            });
+        }
 
         function editItem() {
 
