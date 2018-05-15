@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create blog post</title>
+</head>
+<body>
+<h1>Blogi pealkiri:</h1>
+
+<form><input type="blogTitle" name="blogTitle"></form>
+<br>
+
+<h1>Blogi kategooria</h1>
+
+<select>
+    <option ng-repeat="category in vm.categories"
+            value="{{ category.blogCategoryName }}">{{ category.blogCategoryName }}</option>
+
+</select>
+
+<h2>Sisu:</h2>
+
+<textarea rows="20" cols="100" name="postContent">
+</textarea>
+
+</body>
+</html>
