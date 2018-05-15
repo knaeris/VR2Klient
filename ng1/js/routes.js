@@ -38,6 +38,10 @@
             templateUrl : 'views/register.html',
             controller : 'RegisterController',
             controllerAs: 'vm'
+        }).when('/createblog', {
+            templateUrl : 'views/createblog.html',
+            controller : 'CreateBlogController',
+            controllerAs: 'vm'
         }).otherwise('/main');
 
     }

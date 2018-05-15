@@ -20,6 +20,9 @@
                 console.log(vm.blogpost);
             })
         }
+        function postBlogData() {
+            
+        }
 
 
     }
