@@ -5,7 +5,7 @@
 
     function Ctrl($http) {
         var vm = this;
-        var url = 'https://localhost:44305/api/blogs';
+        var url =  'https://localhost:44305/api/blogs';
         this.blogs = [];
 
         init();

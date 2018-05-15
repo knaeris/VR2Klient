@@ -5,11 +5,8 @@
 
     function RouteConfig($routeProvider) {
 
-        $routeProvider.when('/New', {
-            templateUrl : 'views/new.html',
-            controller : 'NewController',
-            controllerAs : 'vm'
-        }).when('/Categories', {
+        $routeProvider
+            .when('/Categories', {
             templateUrl : 'views/categories.html',
             controller : 'CategoriesController',
             controllerAs : 'vm'
@@ -19,8 +16,8 @@
             controllerAs : 'vm'
         }).when('/main', {
             templateUrl : 'views/main.html',
-            controller : 'MainController',
-            controllerAs : 'vm'
+           // controller :/'MainController',
+           // controllerAs : 'vm'
         }).when('/latest-blogposts', {
             templateUrl : 'views/latest-blogposts.html',
             controller : 'latestBlogpostsController',
@@ -31,7 +28,7 @@
             controllerAs : 'vm'
         }).when('/login', {
             templateUrl : 'views/login.html',
-            controller : 'AccountController',
+            controller : 'LoginController',
             controllerAs: 'vm'
         }).when('/blogpost/:id', {
             templateUrl : 'views/blogpost.html',
@@ -39,7 +36,7 @@
             controllerAs : 'vm'
         }).when('/register', {
             templateUrl : 'views/register.html',
-            controller : 'AccountController',
+            controller : 'RegisterController',
             controllerAs: 'vm'
         }).otherwise('/main');
 

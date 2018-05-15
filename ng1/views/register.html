@@ -68,20 +68,20 @@ text-align: center;
         <hr>
 
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" ng-model="email" name="Eémail" id="email"required>
 
-        <label for="nickname"><b>Nickname</b></label>
-        <input type="text" placeholder="Enter Nickname" name="nickname" required>
+        <label ><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" ng-model="username" name="username" id="username"required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" ng-model="password" name="password" id="password" required>
 
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <label><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" ng-model="confirmPassword" name="confirmPassword" id="confirmPassword" required>
         <hr>
 
 
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" ng-click="registerUser()" class="registerbtn">Register</button>
     </div>
 
     <div class="container signin">
