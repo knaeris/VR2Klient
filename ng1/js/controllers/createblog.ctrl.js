@@ -1,7 +1,13 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('CreateBlogController', Ctrl);
+    angular.module('app').controller('CreateBlogController', Ctrl)
+        .config(function ($httpProvider) {
+        $httpProvider.defaults.headers.common = {};
+        $httpProvider.defaults.headers.post = {};
+        $httpProvider.defaults.headers.put = {};
+        $httpProvider.defaults.headers.patch = {};
+    });
 
     function Ctrl($http, $location){
 
@@ -10,7 +16,9 @@
         var urlBlogs = 'https://localhost:44305/api/blogs';
         var urlBlogPosts = 'https://localhost:44305/api/blogposts';
         this.categories = [];
-        vm.blogPost = {};
+        //this.blogPost = '';
+        this.blogPostTitle='';
+        this.blogPostContent='';
         vm.blog = {};
         vm.submitData = submitData;
 
@@ -24,9 +32,23 @@
         }
 
         function submitData() {
-            $http.post(urlBlogPosts, vm.blogPost)
-                //.then($location.path('/main'))
+            var blogPost={
+                blogPostTitle:this.blogPostTitle,
+                blogPostContent:this.blogPostContent
+            }
 
+
+            console.log(blogPost)
+
+
+
+try {
+    $http.post(urlBlogPosts, blogPost)
+    //.then($location.path('/
+}
+catch(err){
+                console.log(err.toString())
+}
         }
 
     }
