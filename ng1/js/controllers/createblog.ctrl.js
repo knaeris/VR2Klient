@@ -32,14 +32,14 @@
         }
 
         function submitData() {
-<<<<<<< HEAD
+
             var blogPost={
                 blogPostTitle:this.blogPostTitle,
                 blogPostContent:this.blogPostContent
             }
-=======
+
             $http.post(urlBlogPosts, vm.blogPost)
->>>>>>> 8b7833bbcd930374d7a735631426406f58366c4f
+
 
 
             console.log(blogPost)
