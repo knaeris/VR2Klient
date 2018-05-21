@@ -42,6 +42,10 @@
             templateUrl : 'views/createblog.html',
             controller : 'CreateBlogController',
             controllerAs: 'vm'
+        }).when('/createpost', {
+            templateUrl : 'views/createpost.html',
+            controller : 'CreatePostController',
+            controllerAs: 'vm'
         }).otherwise('/main');
 
     }

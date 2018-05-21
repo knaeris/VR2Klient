@@ -25,7 +25,6 @@
 
         function submitData() {
             $http.post(urlBlogPosts, vm.blogPost)
-                //.then($location.path('/main'))
 
         }
 
