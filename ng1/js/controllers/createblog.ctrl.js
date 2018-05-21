@@ -1,13 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('CreateBlogController', Ctrl)
-        .config(function ($httpProvider) {
-        $httpProvider.defaults.headers.common = {};
-        $httpProvider.defaults.headers.post = {};
-        $httpProvider.defaults.headers.put = {};
-        $httpProvider.defaults.headers.patch = {};
-    });
+    angular.module('app').controller('CreateBlogController', Ctrl);
 
     function Ctrl($http, $location){
 
@@ -38,7 +32,7 @@
                 blogPostContent:this.blogPostContent
             }
 
-            $http.post(urlBlogPosts, vm.blogPost)
+          //  $http.post(urlBlogPosts, vm.blogPost)
 
 
 
@@ -47,7 +41,17 @@
 
 
 try {
-    $http.post(urlBlogPosts, blogPost)
+    $http({
+        url: urlBlogPosts,
+        method: 'POST',
+        data: blogPost,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept':'application/json'
+            // Note the appropriate header
+        }
+    }).success(function(response) {  console.log("success"); /* do something here */ });
+   // $http.post(urlBlogPosts, blogPost)
     //.then($location.path('/
 }
 catch(err){
