@@ -3,46 +3,38 @@
         var url = 'https://localhost:44305/api/';
         angular
             .module('app')
-            .controller('RegisterController', RegCtrl)
-            .config(function ($httpProvider) {
-            $httpProvider.defaults.headers.common = {};
-            $httpProvider.defaults.headers.post = {};
-            $httpProvider.defaults.headers.put = {};
-            $httpProvider.defaults.headers.patch = {};
-        });
+            .controller('RegisterController', RegCtrl);
+
 
 
         function RegCtrl($http, $scope) {
             $scope.registerUser = registerUser;
 
             function registerUser() {
-                if ($scope.Password !== $scope.ConfirmPassword) {
-                    alert("Passwords did not match!");
-                    return;
-                }
-
-                var newUser = {
-                    Email: $scope.email,
-                    Username: $scope.username,
-                    Password: $scope.password,
-                    ConfirmPassword: $scope.confirmPassword
-                }
-                console.log(newUser);
-                $http.post(url + 'Account/Register', newUser).success(function(response){
+                var model = {
+                    Email: $scope.Email,
+                    Password: $scope.Password,
+                    ConfirmPassword: $scope.ConfirmPassword
+                };
+                $http({
+                    url: url + 'Account/register', //change to your api controller url
+                    method: 'POST',
+                    data: model, //pass a model as RegisterViewModel
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept':'application/json'
+                        // Note the appropriate header
+                    }
 
                 });
 
+console.log(model);
 
 
             }
         }
 
-        angular.module('app').controller('LoginController', LogCtrl).config(function ($httpProvider) {
-            $httpProvider.defaults.headers.common = {};
-            $httpProvider.defaults.headers.post = {};
-            $httpProvider.defaults.headers.put = {};
-            $httpProvider.defaults.headers.patch = {};
-        });
+        angular.module('app').controller('LoginController', LogCtrl);
 
         function LogCtrl($http,$location, $scope){
             var tokenKey= "accessToken";
