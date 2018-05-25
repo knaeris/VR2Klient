@@ -3,17 +3,18 @@
 
     angular.module('app').controller('CategoriesController', Ctrl);
 
-    function Ctrl($http, $scope){
+    function Ctrl($http, $routeParams, $scope){
 
         var vm = this;
         var url = 'https://localhost:44305/api/blogcategories';
+        var blogId = $routeParams.id;
         this.categories = [];
 
 
         init();
 
         function init() {
-            $http.get(url).then(function (result) {
+            $http.get(url + blogId).then(function (result) {
                 vm.categories = result.data;
                 console.log(vm.categories);
             });

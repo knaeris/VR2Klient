@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlogsInCategories</title>
+</head>
+<body>
+<table>
+    <tr ng-repeat="blogs in vm.blogs | filter:find">
+        <td>
+            {{ blogs.blogTitle }}
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

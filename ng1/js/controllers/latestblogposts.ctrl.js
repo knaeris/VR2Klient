@@ -10,8 +10,6 @@
 
         init();
 
-
-
         function init() {
             $http.get(url).then(function (result) {
                 vm.blogposts = result.data;
