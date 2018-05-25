@@ -1,11 +1,18 @@
 (function () {
         'use strict';
+
+        angular.module('app').controller('RegisterController', RegCtrl);
+        angular.module('app').controller('LoginController', LogCtrl);
+        angular.module('app').controller('LogOutController', LogOutCtrl);
+
+
         var url = 'https://localhost:44305/api/';
-        angular
-            .module('app')
-            .controller('RegisterController', RegCtrl);
-
-
+        var tokenKey = "accessToken";
+        var token = sessionStorage.getItem(tokenKey);
+        var headers = {};
+        if (token) {
+            headers.Authorization = 'Bearer' + token;
+        }
 
         function RegCtrl($http, $scope) {
             $scope.registerUser = registerUser;
@@ -17,58 +24,69 @@
                     ConfirmPassword: $scope.ConfirmPassword
                 };
                 $http({
-                    url: url + 'Account/register', //change to your api controller url
+                    url: url + 'Account/register',
                     method: 'POST',
-                    data: model, //pass a model as RegisterViewModel
+                    data: model,
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept':'application/json'
-                        // Note the appropriate header
+                        'Accept': 'application/json'
                     }
-
-                });
-
-console.log(model);
-
-
-            }
+                    });
+                console.log(model);
+                }
         }
 
-        angular.module('app').controller('LoginController', LogCtrl);
 
-        function LogCtrl($http,$location, $scope){
-            var tokenKey= "accessToken";
-            $scope.logUser=logUser;
+        function LogCtrl($http, $location, $scope) {
+
+
+            $scope.logUser = logUser;
 
             function logUser() {
-                var token = sessionStorage.getItem(tokenKey);
-                var headers = {};
-                if (token) {
-
-                headers.Authorization = 'Bearer ' + token;
-            }
 
                 var data = {
-                    email: $scope.email,
-                    password: $scope.password
+                    Email: $scope.Email,
+                    Password: $scope.Password,
+
                 };
                 console.log(data);
-                console.log(url);
 
-                $.ajax({
-                    type:'POST',
-                    url: url+'security/gettoken',
-                    contentType:'application/json; chartset=utf-8',
-                    data:JSON.stringify(data)
+
+                $http({
+
+                    url: url + 'security/gettoken',
+                    method: 'POST',
+                    data: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Accept': 'application/json'
+
+                    }
+
+                }).then(function (json) {
+                    alert("User logged in!");
+                    console.log(JSON.stringify(json, null, '  '), true);
+                    sessionStorage.setItem(tokenKey, json.token);
+                    $location.path('#/main');
+
+                }).catch(function (showError) {
+                    console.log(showError);
                 })
-                    .done(function(json){
-                        console.log(url);
-                        console.log(JSON.stringify(json, null, '  '), true);
-                        sessionStorage(tokenKey, json.token);
-                    })
-                    .fail();
+
+
             }
         }
 
+        function LogOutCtrl() {
+            $scope.LogOut = LogOut;
+
+            function LogOut() {
+                sessionStorage.removeItem(tokenKey);
+            }
+        }
+
+
+
+
     }
-    )();
+)();
