@@ -46,9 +46,9 @@
             templateUrl : 'views/createpost.html',
             controller : 'CreatePostController',
             controllerAs: 'vm'
-        }).when('/blogsincategories/:id', {
-            templateUrl : 'views/blogsincategories.html',
-            controller : 'BlogsInCategoriesController',
+        }).when('/myblogs', {
+            templateUrl : 'views/myblogs.html',
+            controller : 'MyBlogsController',
             controllerAs: 'vm'
         }).otherwise('/main');
 

@@ -1,16 +1,16 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').service('loginSrv', loginSrv);
+    angular.module('app').service('sessionSrv', Srv);
 
-    function loginSrv() {
+    function Srv() {
         this.isLoggedIn = function () {
-            return sessionStorage.getItem('session-token') !== null;
+            var tokenKey = "accessToken";
+            var token = sessionStorage.getItem(tokenKey);
+            return token !== null;
         };
 
-        this.getLoggedInUser = function () {
-            //TODO?
-        }
+
     }
 
 })();

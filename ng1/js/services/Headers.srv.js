@@ -1,15 +1,19 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').service('headersSrv', headersSrv);
+    angular.module('app').service('headersSrv', Srv);
 
-    function headersSrv() {
+    function Srv() {
 
         this.getAuthHeader = function () {
-            var header = {
-                'Authorization': 'Bearer ' + sessionStorage.getItem('session-token')
+            var tokenKey = "accessToken";
+            var token = sessionStorage.getItem(tokenKey);
+            var headers = {};
+            if (token) {
+                headers.Authorization = 'Bearer' + token;
+
             };
-            return header;
+            return headers;
         };
     }
 })();
