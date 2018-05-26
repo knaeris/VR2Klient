@@ -16,8 +16,8 @@
             controllerAs : 'vm'
         }).when('/main', {
             templateUrl : 'views/main.html',
-           // controller :/'MainController',
-           // controllerAs : 'vm'
+           // controller :'MainController',
+          //  controllerAs : 'vm'
         }).when('/latest-blogposts', {
             templateUrl : 'views/latest-blogposts.html',
             controller : 'latestBlogpostsController',

@@ -3,7 +3,7 @@
 
         angular.module('app').controller('RegisterController', RegCtrl);
         angular.module('app').controller('LoginController', LogCtrl);
-        angular.module('app').controller('LogOutController', LogOutCtrl);
+        angular.module('app').controller('LogOutController',['$scope','sessionSrv', LogOutCtrl]);
 
 
         var url = 'https://localhost:44305/api/';
@@ -13,6 +13,10 @@
         if (token) {
             headers.Authorization = 'Bearer' + token;
         }
+
+
+
+
 
         function RegCtrl($http, $scope) {
             $scope.registerUser = registerUser;
@@ -69,6 +73,7 @@
                     sessionStorage.setItem(tokenKey, json.token);
                     $location.path('#/main');
 
+
                 }).catch(function (showError) {
                     console.log(showError);
                 })
@@ -77,12 +82,27 @@
             }
         }
 
-        function LogOutCtrl() {
+        function LogOutCtrl($scope) {
             $scope.LogOut = LogOut;
 
+
             function LogOut() {
-                sessionStorage.removeItem(tokenKey);
+
+         //  var tok= $scope.isLoggedIn=sessionSrv.isLoggedIn;
+
+                if (! removeExistingItem(tokenKey))
+                    console.log("Error");
+                else
+                    alert("User logged out!");
+
+                function removeExistingItem(key) {
+                    if (sessionStorage.getItem(key) === null)
+                        return false;
+                    sessionStorage.removeItem(key);
+                    return true;
+                }
             }
+
         }
 
 
