@@ -22,7 +22,7 @@
             templateUrl : 'views/profile.html',
             controller : 'profileController',
             controllerAs : 'vm'
-        }).when('/blogview/:id', {
+        }).when('/blog/:id', {
             templateUrl : 'views/blogview.html',
             controller : 'BlogViewController',
             controllerAs : 'vm'

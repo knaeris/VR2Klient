@@ -13,7 +13,9 @@
         <th>Blogi kirjeldus</th>
         </thead>
         <tr ng-repeat="blog in vm.blogs">
-            <td> {{blog.blogTitle}}</td>
+            <td>
+               <a href="#/blog/{{blog.blogId}}"> {{blog.blogTitle}}</a>
+            </td>
             <td>{{blog.blogDescription}}</td>
         </tr>
 </table>
