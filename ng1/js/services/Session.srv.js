@@ -5,8 +5,7 @@
 
     function Srv() {
         this.isLoggedIn = function () {
-            var tokenKey = "accessToken";
-            var token = sessionStorage.getItem(tokenKey);
+            var token = sessionStorage.getItem("accessToken");
             return token !== null;
         };
 

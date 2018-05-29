@@ -50,6 +50,10 @@
             templateUrl : 'views/myblogs.html',
             controller : 'MyBlogsController',
             controllerAs: 'vm'
+        }).when('/logout', {
+            templateUrl : 'views/logout.html',
+            controller : 'LogOutController',
+            controllerAs: 'vm'
         }).otherwise('/main');
 
     }

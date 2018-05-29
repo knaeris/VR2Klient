@@ -65,13 +65,17 @@
                         'Content-Type': 'application/json; charset=utf-8',
                         'Accept': 'application/json'
 
+
                     }
 
                 }).then(function (json) {
-                    alert("User logged in!");
+                    alert(data.Email + " logged in!");
                     console.log(JSON.stringify(json, null, '  '), true);
-                    sessionStorage.setItem(tokenKey, json.token);
+                    sessionStorage.setItem("accessToken", json.data.token);
+                    alert(sessionStorage.getItem("accessToken"));
                     $location.path('#/main');
+
+
 
 
                 }).catch(function (showError) {
@@ -88,12 +92,12 @@
 
             function LogOut() {
 
-         //  var tok= $scope.isLoggedIn=sessionSrv.isLoggedIn;
+
 
                 if (! removeExistingItem(tokenKey))
                     console.log("Error");
                 else
-                    alert("User logged out!");
+                    alert(" logged out!");
 
                 function removeExistingItem(key) {
                     if (sessionStorage.getItem(key) === null)
