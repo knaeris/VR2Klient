@@ -16,7 +16,7 @@
             controllerAs : 'vm'
         }).when('/main', {
             templateUrl : 'views/main.html',
-           // controller :'MainController',
+            controller :'MainController',
           //  controllerAs : 'vm'
         }).when('/profile', {
             templateUrl : 'views/profile.html',

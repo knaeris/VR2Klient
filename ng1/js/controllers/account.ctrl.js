@@ -3,7 +3,7 @@
 
         angular.module('app').controller('RegisterController', RegCtrl);
         angular.module('app').controller('LoginController', LogCtrl);
-        angular.module('app').controller('LogOutController',['$scope','sessionSrv', LogOutCtrl]);
+        angular.module('app').controller('LogOutController', LogOutCtrl);
 
 
         var url = 'https://localhost:44305/api/';
@@ -74,7 +74,10 @@
                     sessionStorage.setItem("accessToken", json.data.token);
                     alert(sessionStorage.getItem("accessToken"));
                     $location.path('#/main');
-
+                    document.getElementById("menu-profile").style.visibility="visible";
+                    document.getElementById("menu-createpost").style.visibility="visible";
+                    document.getElementById("menu-logout").style.visibility="visible";
+                    document.getElementById("menu-login").style.visibility="hidden";
 
 
 
@@ -96,8 +99,15 @@
 
                 if (! removeExistingItem(tokenKey))
                     console.log("Error");
-                else
+                else {
                     alert(" logged out!");
+                    window.location.href='#/main'
+                    document.getElementById("menu-profile").style.visibility = "hidden";
+                    document.getElementById("menu-createpost").style.visibility = "hidden";
+                    document.getElementById("menu-logout").style.visibility = "hidden";
+                    document.getElementById("menu-login").style.visibility = "visible";
+
+                }
 
                 function removeExistingItem(key) {
                     if (sessionStorage.getItem(key) === null)

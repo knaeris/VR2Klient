@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('CreateBlogController',['$http', 'headersSrv', Ctrl]);
+    angular.module('app').controller('CreateBlogController', Ctrl);
 
-    function Ctrl($http, $location, headersSrv){
+    function Ctrl($http){
 
         var vm = this;
         var urlCat = 'https://localhost:44305/api/blogcategories/';
@@ -48,20 +48,7 @@
                 console.log(error)
             });;
 
-            /*  try {
-                  $http({
-                            url: urlBlogs,
-                            method: 'POST',
-                            data: blog,
-                           headers: {
-                          'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")
-                      }
-                        }).success(function(response) {  console.log(JSON.stringify(response));  });
-
-      }
-      catch(err){
-              console.log(err.toString())
-          }*/
+          
 
 
 
