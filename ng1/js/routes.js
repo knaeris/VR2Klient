@@ -16,7 +16,7 @@
             controllerAs : 'vm'
         }).when('/main', {
             templateUrl : 'views/main.html',
-            controller :'MainController',
+            controller :'MainController'
           //  controllerAs : 'vm'
         }).when('/profile', {
             templateUrl : 'views/profile.html',
@@ -49,6 +49,10 @@
         }).when('/myblogs', {
             templateUrl : 'views/myblogs.html',
             controller : 'MyBlogsController',
+            controllerAs: 'vm'
+        }).when('/categories/:id/blogs', {
+            templateUrl : 'views/blogsincategories.html',
+            controller : 'BlogsInCategoriesController',
             controllerAs: 'vm'
         }).when('/logout', {
             templateUrl : 'views/logout.html',

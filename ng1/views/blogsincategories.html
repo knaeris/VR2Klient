@@ -6,12 +6,16 @@
 </head>
 <body>
 <table>
-    <tr ng-repeat="blogs in vm.blogs | filter:find">
-        <td>
-            {{ blogs.blogTitle }}
-        </td>
-    </tr>
-
+  <h2> Blogid kategoorias: {{vm.category.blogCategoryName}}</h2>
+    <table>
+        <thead>
+        <th>Blogpi pealkiri</th>
+        <th>Blogi kirjeldus</th>
+        </thead>
+        <tr ng-repeat="blog in vm.blogs">
+            <td> {{blog.blogTitle}}</td>
+            <td>{{blog.blogDescription}}</td>
+        </tr>
 </table>
 </body>
 </html>

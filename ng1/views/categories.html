@@ -11,9 +11,9 @@
     </tr>
     </thead>
     <body>
-    <tr ng-repeat="category in vm.categories | filter:find">
+    <tr ng-repeat="category in vm.categories">
         <td>
-            <a href= "#/blogsincategories/{{category.blogCategoryId}}">
+            <a href= "#/categories/{{category.blogCategoryId}}/blogs">
 
             {{ category.blogCategoryName }}
             </a>
