@@ -18,9 +18,9 @@
             templateUrl : 'views/main.html',
            // controller :'MainController',
           //  controllerAs : 'vm'
-        }).when('/latest-blogposts', {
-            templateUrl : 'views/latest-blogposts.html',
-            controller : 'latestBlogpostsController',
+        }).when('/profile', {
+            templateUrl : 'views/profile.html',
+            controller : 'profileController',
             controllerAs : 'vm'
         }).when('/blogview/:id', {
             templateUrl : 'views/blogview.html',

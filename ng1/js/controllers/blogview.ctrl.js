@@ -10,13 +10,21 @@
         vm.blog = {};
 
         init();
-
+        initBlogPosts();
         function init() {
             $http.get(url + blogId)
                 .then(function (result) {
                 vm.blog = result.data;
                 console.log(vm.blog);
             });
+        }
+        function initBlogPosts(){
+            $http.get(url+blogId+'/blogposts').then(function(result){
+                vm.blogPosts=result.data;
+                console.log(vm.blogposts);
+            })
+
+
         }
 
 

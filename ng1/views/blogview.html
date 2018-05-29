@@ -21,7 +21,24 @@
         {{vm.blog.blogDescription}}
     </h3>
 </div>
+<div>
+    <table>
+        <thead>
+        <th> Blogi pealkiri</th>
+        <th> Blogi Sisu </th>
+        </thead>
 
+        <tr ng-repeat="blogPost in vm.blogPosts">
+            <td>
+            {{blogPost.blogPostTitle}}
+            </td>
+            <td>
+                {{blogPost.blogPostContent}}
+            </td>
+        </tr>
+
+    </table>
+</div>
 
 
 </body>

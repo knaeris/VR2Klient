@@ -14,7 +14,14 @@
 <h1>Sisu:</h1>
 
 <textarea rows="20" cols="100" name="blogPostContent" ng-model="vm.blogPostContent">
+
 </textarea><input type="submit" name="Esita" id="submit" ng-click="vm.submitData()">
 </form>
+<h1>Blogi Nimi</h1>
+<select ng-model="vm.blogId" >
+    <option disabled selected value> -- Vali Blogi kuhu soovid postitada -- </option>
+    <option ng-repeat="blog in vm.blogs"
+            value="{{ blog.blogId }}">{{ blog.blogTitle }}</option>
+</select>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profiil</title>
+</head>
+<body>
+<div>
+    <h2> Minu blogid</h2>
+    <ul>
+        <li ng-repeat="blog in vm.blogs">
+            <a href="#/blogview/{{blog.blogId}}">
+            {{blog.blogTitle}}
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
