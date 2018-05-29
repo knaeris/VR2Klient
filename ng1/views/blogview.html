@@ -24,22 +24,14 @@
 <div>
     <table>
         <thead>
-        <th> Blogi pealkiri</th>
-        <th> Blogi Sisu </th>
+        <th>Blogposti pealkiri</th>
+        <th>Blogiposti sisu</th>
         </thead>
-
         <tr ng-repeat="blogPost in vm.blogPosts">
-            <td>
-            {{blogPost.blogPostTitle}}
-            </td>
-            <td>
-                {{blogPost.blogPostContent}}
-            </td>
+            <td> {{blogPost.blogPostTitle}}</td>
+            <td>{{blogPost.blogPostContent}}</td>
         </tr>
-
     </table>
 </div>
-
-
 </body>
 </html>
