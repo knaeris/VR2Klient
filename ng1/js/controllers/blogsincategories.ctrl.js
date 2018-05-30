@@ -8,7 +8,7 @@
         var vm = this;
         var url = 'https://localhost:44305/api/blogcategories/';
 
-         var blogCategoryId = $route.current.params.id;//$routeParams.id;
+         var blogCategoryId = $routeParams.id;
         this.blogs = [];
 
         initCatTitle();

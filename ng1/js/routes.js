@@ -30,7 +30,7 @@
             templateUrl : 'views/login.html',
             controller : 'LoginController',
             controllerAs: 'vm'
-        }).when('/blogpost/:id', {
+        }).when('/blogs/:blogId/blogposts/:blogPostId', {
             templateUrl : 'views/blogpost.html',
             controller : 'BlogpostsController',
             controllerAs : 'vm'

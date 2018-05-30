@@ -20,7 +20,25 @@
         {{vm.blogpost.blogPostContent}}
     </p>
 </div>
-
-
+<div>
+    <table>
+        <thead>
+        <th> kommentaar</th>
+        <th>autor</th>
+        </thead>
+        <tr ng-repeat="comment in vm.comments">
+        <td> {{comment.blogPostCommentContent}}</td>
+        <td>{{comment.applicationUserId}}</td>
+        </tr>
+    </table>
+</div>
+<pre></pre>
+<div>
+    <form>
+    <textarea rows="4" cols="20" ng-model="vm.blogPostCommentContent"></textarea>
+        <br>
+    <input type="submit" ng-click="vm.commentPost()">
+    </form>
+</div>
 </body>
 </html>

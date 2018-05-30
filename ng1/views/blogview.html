@@ -28,10 +28,15 @@
         <th>Blogiposti sisu</th>
         </thead>
         <tr ng-repeat="blogPost in vm.blogPosts">
-            <td> {{blogPost.blogPostTitle}}</td>
+            <td>
+                <a href="#/blogs/{{blogPost.blogId}}/blogposts/{{blogPost.blogPostId}}">
+                    {{blogPost.blogPostTitle}}
+                </a>
+            </td>
             <td>{{blogPost.blogPostContent}}</td>
         </tr>
     </table>
 </div>
+
 </body>
 </html>
