@@ -58,6 +58,10 @@
             templateUrl : 'views/logout.html',
             controller : 'LogOutController',
             controllerAs: 'vm'
+        }).when('/editblog/:blogId', {
+            templateUrl : 'views/editblog.html',
+            controller : 'EditBlogController',
+            controllerAs: 'vm'
         }).otherwise('/main');
 
     }

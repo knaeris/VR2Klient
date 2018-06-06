@@ -24,7 +24,7 @@
             $http.get(urlMyblogs,{headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}})
                 .then(function (result) {
                 vm.blogs = result.data;
-                console.log(vm.blogs);
+
             });
         }
 
@@ -35,15 +35,7 @@
                 blogPostContent:this.blogPostContent,
                 blogId:this.blogId
             }
-
-
-
-
-
             console.log(blogPost)
-
-
-
             try {
                 $http({
                     url: urlBlog+vm.blogId+'/blogposts',
@@ -51,12 +43,13 @@
                     data: blogPost,
                     headers:
                         {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}
-                }).success(function(response) {  console.log("success"); /* do something here */ });
-                // $http.post(urlBlogPosts, blogPost)
-                //.then($location.path('/
+                }).then(function() {
+                    alert("Postitatud")
+                    window.location.href='#/blog/'+vm.blogId});
+
             }
             catch(err){
-                console.log(err.toString())
+                console.log(err)
             }
         }
 

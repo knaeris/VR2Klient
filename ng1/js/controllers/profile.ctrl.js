@@ -16,7 +16,7 @@
             $http.get(urlMyBlogs, {headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}})
                 .then(function (result) {
                 vm.blogs = result.data;
-                console.log(vm.blogs);
+
             });
         }
 

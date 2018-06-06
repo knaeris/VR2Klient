@@ -22,7 +22,7 @@
 
             $http.get(url).then(function (result) {
                 vm.categories = result.data;
-                console.log(vm.categories);
+
 
             });
 

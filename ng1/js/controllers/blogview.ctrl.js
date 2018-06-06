@@ -14,19 +14,27 @@
 
         init();
         initBlogPosts();
+        vm.deleteBlog=deleteBlog;
 
         function init() {
             $http.get(urlBlogs + blogId)
                 .then(function (result) {
                     vm.blog = result.data;
-                    console.log(vm.blog);
+
                 });
         }
 
         function initBlogPosts() {
             $http.get(urlBlogs + blogId + '/blogposts').then(function (result) {
                 vm.blogPosts = result.data;
-                console.log(vm.blogPosts)
+
+            })
+        }
+        function deleteBlog(){
+            $http.delete(urlBlogs+blogId,{headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}}).then(function(result){
+                console.log(result.data);
+                alert("blogi deleted");
+                window.location.href='#/main'
             })
         }
     }

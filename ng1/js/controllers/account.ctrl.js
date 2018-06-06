@@ -21,7 +21,11 @@
         function RegCtrl($http, $scope) {
             $scope.registerUser = registerUser;
 
+
             function registerUser() {
+
+
+
                 var model = {
                     Email: $scope.Email,
                     Password: $scope.Password,
@@ -35,8 +39,9 @@
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
-                    });
-                console.log(model);
+                    })
+
+
                 }
         }
 
@@ -70,9 +75,9 @@
 
                 }).then(function (json) {
                     alert(data.Email + " logged in!");
-                    console.log(JSON.stringify(json, null, '  '), true);
+
                     sessionStorage.setItem("accessToken", json.data.token);
-                    alert(sessionStorage.getItem("accessToken"));
+
                     $location.path('#/main');
                     document.getElementById("menu-profile").style.visibility="visible";
                     document.getElementById("menu-createpost").style.visibility="visible";
@@ -101,7 +106,7 @@
                     console.log("Error");
                 else {
                     alert(" logged out!");
-                    window.location.href='#/main'
+                    window.location.href='#/login'
                     document.getElementById("menu-profile").style.visibility = "hidden";
                     document.getElementById("menu-createpost").style.visibility = "hidden";
                     document.getElementById("menu-logout").style.visibility = "hidden";

@@ -17,14 +17,14 @@
         function initBlogs() {
             $http.get(url + blogCategoryId+'/blogs/').then(function (result) {
                     vm.blogs = result.data;
-                console.log(url + blogCategoryId+'/blogs/');
+
             })
         }
 
         function initCatTitle(){
             $http.get(url+blogCategoryId).then(function(result){
                 vm.category=result.data;
-                console.log(vm.category);
+
             })
         }
 

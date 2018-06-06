@@ -20,7 +20,7 @@
             $http.get(url + blogId +'/blogposts/' + blogPostId)
                 .then(function(result){
                 vm.blogpost=result.data;
-                console.log(vm.blogpost);
+
             });
 
         }
@@ -28,7 +28,7 @@
             $http.get(url + blogId + '/blogposts/' + blogPostId + '/blogpostcomments')
                 .then(function (result) {
                     vm.comments = result.data;
-                    console.log(vm.comments);
+
                 })
         }
         function commentPost(){

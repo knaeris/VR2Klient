@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{blog.blogTitle}}</title>
+    <title>{{vm.blog.blogTitle}}</title>
 </head>
 <body>
 <div align="right">
-    Autor: {{ blog.applicationUserId}}
+    Autor: {{ vm.blog.applicationUserId}}
 <br><pre></pre>
 <button type="telli">Telli</button><br>
 <pre></pre>
 <button type="like">Like</button>
+    <pre></pre>
+    <a type="button" ng-click="vm.deleteBlog()">kustuta blogi</a>
+    <pre></pre>
+    <a href="#/editblog/{{vm.blog.blogId}}"> muuda </a>
 </div>
 <div>
     <h1>
