@@ -14,17 +14,11 @@
             headers.Authorization = 'Bearer' + token;
         }
 
-
-
-
-
+        //Function to register a user
         function RegCtrl($http, $scope) {
             $scope.registerUser = registerUser;
 
-
             function registerUser() {
-
-
 
                 var model = {
                     Email: $scope.Email,
@@ -39,15 +33,12 @@
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
-                    })
-
-
-                }
+                })
+            }
         }
 
-
+        //Function to log in as a user
         function LogCtrl($http, $location, $scope) {
-
 
             $scope.logUser = logUser;
 
@@ -55,24 +46,16 @@
 
                 var data = {
                     Email: $scope.Email,
-                    Password: $scope.Password,
-
+                    Password: $scope.Password
                 };
-                console.log(data);
-
-
                 $http({
-
                     url: url + 'security/gettoken',
                     method: 'POST',
                     data: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json; charset=utf-8',
                         'Accept': 'application/json'
-
-
                     }
-
                 }).then(function (json) {
                     alert(data.Email + " logged in!");
 
@@ -84,23 +67,17 @@
                     document.getElementById("menu-logout").style.visibility="visible";
                     document.getElementById("menu-login").style.visibility="hidden";
 
-
-
                 }).catch(function (showError) {
                     console.log(showError);
                 })
-
-
             }
         }
 
+        //Function to log out of the website
         function LogOutCtrl($scope) {
             $scope.LogOut = LogOut;
 
-
             function LogOut() {
-
-
 
                 if (! removeExistingItem(tokenKey))
                     console.log("Error");
@@ -111,7 +88,6 @@
                     document.getElementById("menu-createpost").style.visibility = "hidden";
                     document.getElementById("menu-logout").style.visibility = "hidden";
                     document.getElementById("menu-login").style.visibility = "visible";
-
                 }
 
                 function removeExistingItem(key) {
@@ -121,11 +97,6 @@
                     return true;
                 }
             }
-
         }
-
-
-
-
     }
 )();

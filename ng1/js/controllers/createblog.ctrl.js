@@ -4,8 +4,9 @@
     angular.module('app').controller('CreateBlogController', createCtrl);
     angular.module('app').controller('EditBlogController', editCtrl);
 
-    function createCtrl($http, $routeParams) {
+    function createCtrl($http) {
 
+        //list of variables
         var vm = this;
         var urlCat = 'https://localhost:44305/api/blogcategories/';
         var urlBlogs = 'https://localhost:44305/api/blogs';
@@ -16,11 +17,11 @@
         this.blogDescription = '';
         this.blogCategoryId = '';
 
-
         vm.submitData = submitData;
 
         initCat();
 
+        //Getting the list for categories
         function initCat() {
             $http.get(urlCat).then(function (result) {
                 vm.categories = result.data;
@@ -28,30 +29,25 @@
             });
         }
 
+        //Submits a new blog
         function submitData() {
             var blog = {
                 blogTitle: this.blogTitle,
                 blogDescription: this.blogDescription,
                 blogCategoryId: this.blogCategoryId
-
-
-            }
-
+            };
+            //Posts new blog with its data
             return $http.post(urlBlogs, blog, {headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}})
                 .then(function () {
-
-
                     window.location.href = '#/profile';
-
-
                 }, function (error) {
                     console.log(error)
                 });
 
-
         }
     }
 
+    //Controller for editing a blog
     function editCtrl($http, $routeParams, $scope) {
         var vm = this;
         vm.blog = {};
@@ -62,6 +58,7 @@
 
         init();
 
+        //Gets certain blog
         function init() {
             $http.get(urlBlogs + blogId).then(function (result) {
                 vm.blog = result.data;
@@ -71,6 +68,7 @@
 
         }
 
+        //Function itself to edit blog data
         function editBlog() {
 
             var blog = {
@@ -88,6 +86,7 @@
                 })
         }
 
+        //Getting the list for categories for this controller
         function initCat() {
             $http.get(urlCat).then(function (result) {
                 vm.categories = result.data;

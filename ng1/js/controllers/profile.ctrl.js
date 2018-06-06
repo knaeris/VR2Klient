@@ -4,13 +4,14 @@
     angular.module('app').controller('profileController', Ctrl);
 
     function Ctrl($http) {
-        var vm = this
+        //defining variables
+        var vm = this;
         var urlMyBlogs = 'https://localhost:44305/api/myblogs/';
         this.blogs=[];
 
         initMyBlogs();
 
-
+        //function to get blogs created by user using authorization token
 
         function initMyBlogs() {
             $http.get(urlMyBlogs, {headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}})
@@ -19,9 +20,5 @@
 
             });
         }
-
-
-
-
     }
 })();

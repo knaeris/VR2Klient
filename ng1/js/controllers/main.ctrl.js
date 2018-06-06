@@ -7,7 +7,7 @@
 
         $scope.ref = ref;
 
-
+        //redirects to login if user is not logged in
         function ref() {
             if (sessionStorage.getItem("accessToken") !== null) {
                 window.location.href='#/createblog'

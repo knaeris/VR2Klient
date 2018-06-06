@@ -10,8 +10,7 @@
 
         init();
 
-
-
+        //Function to get all blogs
         function init() {
 
             $http.get(url, {headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("accessToken")}})
@@ -20,7 +19,6 @@
 
             });
         }
-
 
     }
 })();
